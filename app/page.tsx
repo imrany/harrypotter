@@ -32,6 +32,10 @@ export default function Home() {
             src={item.image}
             alt={item.name}
           />
+          <div className="">
+            <p>{item.name}</p>
+            <p>{item.dateOfBirth}</p>
+          </div>
         </div>
       )):(
         <>
