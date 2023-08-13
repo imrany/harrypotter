@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
      <p>This is the landing page</p>
-     <Link href="/dashboard">To Dashboard</Link>
+     <Link href="/1">To Dashboard</Link>
          
     </main>
   )
