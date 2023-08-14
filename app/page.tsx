@@ -24,17 +24,20 @@ export default function Home() {
     fetchItems()
   },[])
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     <div className="grid grid-cols-3 gap-[10px] max-md:grid-cols-2 max-sm:flex ">
+    <main className="flex min-h-screen flex-col items-center justify-between p-10">
+     <div className="md:grid lg:grid-cols-4 gap-[30px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-center" >
       {items?items.map((item:any)=>(
-        <div onClick={()=>router.push(`/characters/${item.id}`)} className="" key={item.id}>
+        <div onClick={()=>router.push(`/characters/${item.id}`)} className='flex w-[270px]  flex-col justify-center cursor-pointer shadow-lg rounded-lg border-[1px] border-gray-100' key={item.id}>
           <Image
-            src={item.image}
+            src={`${item.image}`}
+            width={270}
+            height={230}
             alt={item.name}
+            className='h-[200px] w-full rounded-t-lg'
           />
-          <div className="">
-            <p>{item.name}</p>
-            <p>{item.dateOfBirth}</p>
+          <div className="ml-6 my-2 text-lg" id={item.id}>
+            <p>Name: {item.name}</p>
+            <p>{item.dateOfBirth===null?"no DoB":item.dateOfBirth}</p>
           </div>
         </div>
       )):(

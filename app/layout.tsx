@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import 'remixicon/fonts/remixicon.css'
 
-const inter = Roboto({ subsets:['cyrillic'],weight: ["100", "300", "400", "500", "700", "900"]  })
+const inter = Roboto({ subsets:['cyrillic'],style: ['italic','normal'],fallback: ['system-ui', 'arial'],weight: ["100", "300", "400", "500", "700", "900"]  })
 
 export const metadata: Metadata = {
   title: 'Harry Potter',
