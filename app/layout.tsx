@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import 'remixicon/fonts/remixicon.css'
 
-const inter = Roboto({ subsets:['cyrillic'],style: ['italic','normal'],fallback: ['system-ui', 'arial'],weight: ["100", "300", "400", "500", "700", "900"]  })
+const roboto = Roboto({ subsets:['cyrillic'],style: ['italic','normal'],fallback: ['system-ui', 'arial'],weight: ["100", "300", "400", "500", "700", "900"]  })
 
 export const metadata: Metadata = {
   title: 'Harry Potter',
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={roboto.className}>{children}</body>
     </html>
   )
 }
