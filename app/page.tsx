@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from 'react'
 
@@ -25,9 +26,10 @@ export default function Home() {
   },[])
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
+      <p className='font-semibold text-4xl my-8 ml-24 text-left w-full'>Harry potter</p>
      <div className="md:grid lg:grid-cols-4 gap-[30px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-center" >
       {items?items.map((item:any)=>(
-        <div onClick={()=>router.push(`/characters/${item.id}`)} className='flex w-[270px]  flex-col justify-center cursor-pointer shadow-lg rounded-lg border-[1px] border-gray-100' key={item.id}>
+        <Link href={`/characters/${item.id}`} className='flex w-[270px]  flex-col justify-center cursor-pointer shadow-lg rounded-lg border-[1px] border-gray-100' key={item.id}>
           <Image
             src={`${item.image}`}
             width={270}
@@ -39,7 +41,7 @@ export default function Home() {
             <p>Name: {item.name}</p>
             <p>{item.dateOfBirth===null?"no DoB":item.dateOfBirth}</p>
           </div>
-        </div>
+        </Link>
       )):(
         <>
           <div className='text-xl'>Error: Failed to Fetch, try again</div>
