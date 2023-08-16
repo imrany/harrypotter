@@ -37,6 +37,7 @@ export default function Page({ params }: { params: Params }) {
   }
   useEffect(()=>{
     getItem()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[data])
   return (
     <main className="flex h-[100vh] flex-col items-center justify-between md:p-24 max-md:py-16 max-md:px-10">

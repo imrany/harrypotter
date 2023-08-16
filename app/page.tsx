@@ -49,6 +49,7 @@ export default function Home() {
 
   useEffect(()=>{
     fetchItems()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[items])
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
