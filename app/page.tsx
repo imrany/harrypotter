@@ -52,7 +52,7 @@ export default function Home() {
   },[items])
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <Link href='/' className='font-semibold text-4xl my-8 ml-24 text-left w-full'>Harry potter</Link>
+      <Link href='/' className='font-semibold text-4xl my-8 md:ml-24 text-left max-sm:text-center w-full'>Harry potter</Link>
       {searchInput}
       {loading}
      <div className="md:grid lg:grid-cols-4 gap-[30px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-center" >
