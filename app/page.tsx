@@ -46,10 +46,10 @@ export default function Home() {
       }
     })
   }
-
+/* eslint-disable */
   useEffect(()=>{
     fetchItems()
-  })
+  },[items])
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
       <Link href='/' className='font-semibold text-4xl my-8 ml-24 text-left w-full'>Harry potter</Link>
