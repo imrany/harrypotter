@@ -34,7 +34,7 @@ export default function Page({ params }: { params: Params }) {
     const data = await res.json()
     setLoading(<></>)
     setBackLink(<>
-    <Link href='/' className='font-semibold md:text-4xl max-sm:text-lg mb-8 -mt-8 ml-24 text-left w-full'><i className='ri ri-arrow-left-line'></i></Link>
+    <Link href='/' className='font-semibold text-4xl mb-8 -mt-8 ml-24 text-left w-full'><i className='ri ri-arrow-left-line'></i></Link>
     </>)
     setData(data)
     console.log(data)

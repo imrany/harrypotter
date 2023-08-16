@@ -20,7 +20,7 @@ export default function Home() {
       setItems(parseRes)
       setLoading(<></>)
       setSearchInput(<>
-       <Link href='/' className='font-semibold md:text-4xl max-sm:text-lg my-8 md:ml-24 text-left max-sm:text-center w-full'>Harry potter</Link>
+       <Link href='/' className='font-semibold text-4xl my-8 md:ml-24 text-left max-sm:text-center w-full'>Harry potter</Link>
        <input type="text" onChange={(e:any)=>handleSearch(e,parseRes)} name="search" className='mt-4 mb-8 rounded-lg w-[270px] md:w-[70vw] border-[1px] text-gray-800 placeholder:text-gray-500 p-2' placeholder='Search for a character' id="search" />
       </>)
     }catch(error:any){
