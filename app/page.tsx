@@ -19,7 +19,10 @@ export default function Home() {
       const parseRes=await response.json()
       setItems(parseRes)
       setLoading(<></>)
-      setSearchInput(<input type="text" onChange={(e:any)=>handleSearch(e,parseRes)} name="search" className='mt-4 mb-8 rounded-lg w-[270px] md:w-[70vw] border-[1px] text-gray-800 placeholder:text-gray-500 p-2' placeholder='Search for a character' id="search" />)
+      setSearchInput(<>
+       <Link href='/' className='font-semibold md:text-4xl max-sm:text-lg my-8 md:ml-24 text-left max-sm:text-center w-full'>Harry potter</Link>
+       <input type="text" onChange={(e:any)=>handleSearch(e,parseRes)} name="search" className='mt-4 mb-8 rounded-lg w-[270px] md:w-[70vw] border-[1px] text-gray-800 placeholder:text-gray-500 p-2' placeholder='Search for a character' id="search" />
+      </>)
     }catch(error:any){
       console.log(error.message)
       setLoading(<>
@@ -49,10 +52,9 @@ export default function Home() {
 /* eslint-disable */
   useEffect(()=>{
     fetchItems()
-  },[items])
+  },[])
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <Link href='/' className='font-semibold text-4xl my-8 md:ml-24 text-left max-sm:text-center w-full'>Harry potter</Link>
       {searchInput}
       {loading}
      <div className="md:grid lg:grid-cols-4 gap-[30px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-center" >
