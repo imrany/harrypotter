@@ -28,16 +28,16 @@ type Data={
 export default function Page({ params }: { params: Params }) {
   const [data,setData]=useState<any>([])
   const [loading,setLoading]=useState(<p className='text-center text-3xl font-semibold'>Fetching data...</p>)
+  async function getItem() {
+    const res = await fetch(`https://hp-api.onrender.com/api/character/${params.id}`)
+    const data = await res.json()
+    setLoading(<></>)
+    setData(data)
+    console.log(data)
+  }
   useEffect(()=>{
-    async function getItem() {
-      const res = await fetch(`https://hp-api.onrender.com/api/character/${params.id}`)
-      const data = await res.json()
-      setLoading(<></>)
-      setData(data)
-      console.log(data)
-    }
     getItem()
-  },[data])
+  })
   return (
     <main className="flex h-[100vh] flex-col items-center justify-between md:p-24 max-md:py-16 max-md:px-10">
       <Link href='/' className='font-semibold text-4xl mb-8 -mt-8 ml-24 text-left w-full'><i className='ri ri-arrow-left-line'></i></Link>
