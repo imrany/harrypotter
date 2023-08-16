@@ -37,7 +37,7 @@ export default function Page({ params }: { params: Params }) {
   }
   useEffect(()=>{
     getItem()
-  },[])
+  },[data])
   return (
     <main className="flex h-[100vh] flex-col items-center justify-between md:p-24 max-md:py-16 max-md:px-10">
       <Link href='/' className='font-semibold text-4xl mb-8 -mt-8 ml-24 text-left w-full'><i className='ri ri-arrow-left-line'></i></Link>
