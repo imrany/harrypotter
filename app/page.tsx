@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react'
 export default function Home() {
   const router=useRouter()
   const [items,setItems]=useState([])
+  const [searchInput,setSearchInput]=useState(<></>)
+  const [loading,setLoading]=useState(<p className='text-center text-3xl font-semibold'>Fetching data...</p>)
 
   const fetchItems=async()=>{
     try{
@@ -16,17 +18,43 @@ export default function Home() {
       })
       const parseRes=await response.json()
       setItems(parseRes)
+      setLoading(<></>)
+      setSearchInput(<input type="text" onChange={(e:any)=>handleSearch(e,parseRes)} name="search" className='mt-4 mb-8 rounded-lg w-[270px] md:w-[70vw] border-[1px] text-gray-800 placeholder:text-gray-500 p-2' placeholder='Search for a character' id="search" />)
     }catch(error:any){
       console.log(error.message)
+      setLoading(<>
+      <p className='text-center text-red-500 text-3xl font-semibold'>{error.message}</p>
+      <button
+        className='mt-2 w-[100px] h-[40px] flex justify-center items-center bg-black text-white rounded-lg'
+        onClick={
+          () => window.location.reload()
+        }
+      >
+        Try again
+      </button>
+      </>)
     }
+  }
+
+  let searchItems:any=[]
+  const handleSearch=(e:any,par:any)=>{
+    const searchterm=`${e.target.value.slice(0,1).toUpperCase()}${e.target.value.slice(1,e.target.value.lenght)}`
+    par.forEach((item:any)=>{
+      if(item.name.includes(searchterm)){
+        searchItems.push(item)
+        setItems(searchItems)
+      }
+    })
   }
 
   useEffect(()=>{
     fetchItems()
-  },[])
+  },[items])
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <p className='font-semibold text-4xl my-8 ml-24 text-left w-full'>Harry potter</p>
+      <Link href='/' className='font-semibold text-4xl my-8 ml-24 text-left w-full'>Harry potter</Link>
+      {searchInput}
+      {loading}
      <div className="md:grid lg:grid-cols-4 gap-[30px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-center" >
       {items?items.map((item:any)=>(
         <Link href={`/characters/${item.id}`} className='flex w-[270px]  flex-col justify-center cursor-pointer shadow-lg rounded-lg border-[1px] border-gray-100' key={item.id}>

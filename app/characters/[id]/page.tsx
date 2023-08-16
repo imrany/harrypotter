@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 type Params={
@@ -39,6 +40,7 @@ export default function Page({ params }: { params: Params }) {
   },[])
   return (
     <main className="flex h-[100vh] flex-col items-center justify-between md:p-24 max-md:py-16 max-md:px-10">
+      <Link href='/' className='font-semibold text-4xl mb-8 -mt-8 ml-24 text-left w-full'><i className='ri ri-arrow-left-line'></i></Link>
       {loading}
       {data&&data.map((item:Data)=>(
         <div className="flex max-md:flex-col" key={item.id}>
